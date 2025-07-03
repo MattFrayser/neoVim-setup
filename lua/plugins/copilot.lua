@@ -4,6 +4,7 @@ return {
     {
         "github/copilot.vim",
         enabled = false,
+        --[[
         config = function()
 
             vim.g.copilot_no_tab_map = true
@@ -33,6 +34,7 @@ return {
             -- Toggle Copilot on/off
             vim.keymap.set('n', '<leader>ct', ':Copilot toggle<CR>', { desc = "Toggle Copilot" })
         end
+        --]]
     }
 }
  
