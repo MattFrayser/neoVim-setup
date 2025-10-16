@@ -26,6 +26,9 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Cancel Q
 vim.keymap.set("n", "Q", "<nop>")
 
+-- Cancel ctrl-Z
+vim.keymap.set("n", "<CR>Z", "<nop>")
+
 -- replace word global
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

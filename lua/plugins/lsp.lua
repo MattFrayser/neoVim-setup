@@ -14,7 +14,8 @@ return {
             ensure_installed = {
                 "tailwindcss",
                 "lua_ls",
-                "jdtls",
+                "ts_ls",
+                "gopls",
             },  
         },
     },
@@ -37,17 +38,18 @@ return {
                 vim.lsp.protocol.make_client_capabilities(),
                 cmp_nvim_lsp.default_capabilities()
             )
-
-            local lspconfig = require("lspconfig")
-
-            -- Language Server Configurations
-            lspconfig.tailwindcss.setup({
-                capabilities = capabilities
-            })
-
-            lspconfig.lua_ls.setup({
-                capabilities = capabilities
-            })
+            
+            -- Configure LSP servers
+            vim.lsp.config('tailwindcss', { capabilities = capabilities })
+            vim.lsp.config('lua_ls', { capabilities = capabilities })
+            vim.lsp.config('gopls', { capabilities = capabilities })
+            vim.lsp.config('ts_ls', { capabilities = capabilities })
+            
+            -- Enable servers
+            vim.lsp.enable('tailwindcss')
+            vim.lsp.enable('lua_ls')
+            vim.lsp.enable('ts_ls')
+            vim.lsp.enable('gopls')
 
             -- Setup completion
             local cmp = require('cmp')
